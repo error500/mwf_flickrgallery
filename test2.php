@@ -3,13 +3,13 @@ require('FlickrApi.php');
 
 
 function photosets_getPhotos($photoset_id) {
-
-    $flickr = new FlickrApi('1beeea1bc67afa38c45c9d7066effe76');
+    $options = get_option( 'mfpp_settings' );
+    $flickr = new FlickrApi($options['mfpp_flickrKey']);
 
     $params = array(
         'method'    => 'flickr.photosets.getPhotos',
         'photoset_id' => $photoset_id,
-        'user_id' => '132976700@N06',
+        'user_id' => $options['mfpp_flickrUserID'],
         'extras' => 'url_l,url_m',
         'per_page' => 100
         
