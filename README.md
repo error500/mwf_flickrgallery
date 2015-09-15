@@ -2,7 +2,7 @@
 
 ## Download
 
-Clone the git repo `https://github.com/error500/wp-masonry-flickr-photo-plugin.git` 
+Clone the git repo `https://github.com/error500/mwf_flickrgallery.git` 
 
 Run bower install
 

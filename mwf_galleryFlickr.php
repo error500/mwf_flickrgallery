@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: mwf gallery masonry flickr photo plugin
-Plugin URI:  http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: Plugin that enable a shortcode for display 
+Plugin URI:  https://github.com/error500/mwf_flickrgallery
+Description: Plugin that enable a shortcode for display a flikr album
 Version:     0.1
-Author:      Fabrice SABOT
-Author URI:  http://URI_Of_The_Plugin_Author
+Author:      Error500
+Author URI:  https://github.com/error500
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
-Text Domain: my-toolset
+
 */
 
 
