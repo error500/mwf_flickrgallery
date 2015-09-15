@@ -1,16 +1,16 @@
 
   jQuery(document).ready(function($) {
 
-    $('#mfpp_photos .mfpp_photo').hide();
+    $('#mwf_photos .mwf_photo').hide();
 
     $('html').removeClass('no-js').addClass('js');
 
-    var $container = $('#mfpp_photos');
+    var $container = $('#mwf_photos');
     
     $container.imagesLoaded(function(){
-      $container.find('.mfpp_photo').fadeIn('fast'); // Fade back in the thumbnails when the layout is complete
+      $container.find('.mwf_photo').fadeIn('fast'); // Fade back in the thumbnails when the layout is complete
       $container.masonry({
-        itemSelector : '.mfpp_photo', 
+        itemSelector : '.mwf_photo', 
         isAnimated : true, // Animate the layout when changing window size
         columnWidth: 260, // Width of the thumbnail including any padding and borders
         gutterWidth: 10 // The gap between thumbnails

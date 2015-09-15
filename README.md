@@ -2,7 +2,7 @@
 
 ## Download
 
-Clone the git repo `https://github.com/error500/mwf_flickrgallery.git` 
+Clone the git repo `https://github.com/error500/mwf_galleryflickr.git` 
 
 Run bower install
 

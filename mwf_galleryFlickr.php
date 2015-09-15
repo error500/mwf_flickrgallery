@@ -1,7 +1,7 @@
 <?php
 /*
-Plugin Name: mwf gallery masonry flickr photo plugin
-Plugin URI:  https://github.com/error500/mwf_flickrgallery
+Plugin Name: Wordpress plugin to display a gallery for flickr photo album
+Plugin URI:  https://github.com/error500/mwf_galleryflickr
 Description: Plugin that enable a shortcode for display a flikr album
 Version:     0.1
 Author:      Error500
@@ -13,14 +13,14 @@ Domain Path: /languages
 */
 
 
-class Mwf_Plugin {
+class Mwf_galleryflickr {
 	public function __construct()
     {
     	$options = get_option( 'mwf_settings' );
     	$this->userId = $options['mwf_flickrUserID'];
     	
     	include_once plugin_dir_path( __FILE__ ).'/FlickrApi.php';
-		include_once plugin_dir_path( __FILE__ ).'masonryflickrphotoplugin-settings.php';
+		include_once plugin_dir_path( __FILE__ ).'mwf_galleryFlickr-settings.php';
 	    
 	    $this->flickr = new FlickrApi($options['mwf_flickrKey']);
     	add_shortcode( 'mwf_photoset_flickr', array($this, 'mwf_shortcode_photoset_flickr') );
@@ -82,10 +82,10 @@ class Mwf_Plugin {
 
 	function mwf_enqueue_scripts() {
 		
-		wp_enqueue_style(  'mwf', plugins_url('/css/mwf.css',__FILE__ ));
-		wp_enqueue_style(  'fancybox', plugins_url('/bower_components/fancybox/source/jquery.fancybox.css',__FILE__ ));
-		wp_register_script( 'images-loaded', plugins_url('/bower_components/imagesloaded/imagesloaded.pkgd.min.js',__FILE__),null,null, true );
-		wp_register_script( 'fancybox', plugins_url('/bower_components/fancybox/source/jquery.fancybox.pack.js',__FILE__) ,null,null, true );
+		wp_enqueue_style(  'mwf', plugins_url('/css/mwf_gallery.css',__FILE__ ));
+		wp_enqueue_style(  'fancybox', plugins_url('/js/fancybox/jquery.fancybox.css',__FILE__ ));
+		wp_register_script( 'images-loaded', plugins_url('/js/imagesloaded/imagesloaded.pkgd.min.js',__FILE__),null,null, true );
+		wp_register_script( 'fancybox', plugins_url('/js/fancybox/jquery.fancybox.pack.js',__FILE__) ,null,null, true );
 		
 		wp_enqueue_script(
 			'mwf-script',
@@ -98,9 +98,9 @@ class Mwf_Plugin {
 // Masonry doesn't work with embeded jQuery version... so i change it here
 if( !is_admin() ){
 	wp_deregister_script('jquery');
-	wp_register_script('jquery', plugins_url('bower_components/jquery/dist/jquery.min.js',__FILE__), null,null,true );
+	wp_register_script('jquery', plugins_url('js/jquery/jquery.min.js',__FILE__), null,null,true );
 	wp_enqueue_script('jquery');
 }
 
 
-new Mwf_Plugin();
+new Mwf_galleryflickr();
