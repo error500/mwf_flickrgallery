@@ -2,7 +2,11 @@
 add_action( 'admin_menu', 'mwf_add_admin_menu' );
 add_action( 'admin_init', 'mwf_settings_init' );
 
-
+/*
+* Script de gestion des paramètres du plugins : 
+* L'écran permet de stocker la clef flickr et l'Id du compte
+* Un descrptif permet de comprendre le shortcode utilisé
+*/
 function mwf_add_admin_menu(  ) { 
 
 	add_submenu_page( 'tools.php', 'masonryflickrphotoplugin', 'Options masonry Flickr photo plugin', 'manage_options', 'masonryflickrphotoplugin', 'mwf_options_page' );
@@ -43,7 +47,7 @@ function mwf_settings_init(  ) {
 
 function mwf_flickrKey_render(  ) { 
 
-	$options = get_option( 'mwf_settings' );
+	$options = get_option( 'mwf_settings' ); 
 	?>
 	<input type='text' name='mwf_settings[mwf_flickrKey]' value='<?php echo $options['mwf_flickrKey']; ?>'>
 	<?php
@@ -64,9 +68,9 @@ function mwf_flickrUserID_render(  ) {
 function mwf_settings_section_callback(  ) { 
 
 	echo __( 'Dans cette section, vous pourrez connecter votre compte Flickr', 'wordpress' );
-	echo '<br><a href="https://www.flickr.com/services/apps/create/apply/">Création de la cle API flickr</a>';
-	echo '<br><a href="http://idgettr.com//">Pour retrouver votre User ID</a>';
-	echo 'Utilisation : Il vous suffit d\'ajouter le shortcode [mwf_album_flickr  photoset_id=xxxxxxxxxxxxx]';
+	echo '<br><a href="https://www.flickr.com/services/apps/create/apply/" target="_blank">Création de la cle API flickr</a>';
+	echo '<br><a href="http://idgettr.com/"  target="_blank" >Pour retrouver votre User ID</a>';
+	echo 'Utilisation : Il vous suffit d\'utiliser le shortcode suivant dans la page [mwf_album_flickr  photoset_id=xxxxxxxxxxxxx] ';
 	echo '<h4>options :</h4>';
 	echo 'photoset_id (obligatoire) : le numéro de l\'album flicker à publier. On le trouve sur l\'url comme ici par exemple https://www.flickr.com/photos/ohcl/albums/72157657402272560';
 	

@@ -82,6 +82,7 @@ class Mwf_galleryflickr {
 
 	function mwf_enqueue_scripts() {
 		
+
 		wp_enqueue_style(  'mwf', plugins_url('/css/mwf_gallery.css',__FILE__ ));
 		wp_enqueue_style(  'fancybox', plugins_url('/js/fancybox/jquery.fancybox.css',__FILE__ ));
 		wp_register_script( 'images-loaded', plugins_url('/js/imagesloaded/imagesloaded.pkgd.min.js',__FILE__),null,null, true );
@@ -95,12 +96,6 @@ class Mwf_galleryflickr {
 }
 
 
-// Masonry doesn't work with embeded jQuery version... so i change it here
-if( !is_admin() ){
-	wp_deregister_script('jquery');
-	wp_register_script('jquery', plugins_url('js/jquery/jquery.min.js',__FILE__), null,null,true );
-	wp_enqueue_script('jquery');
-}
-
 
 new Mwf_galleryflickr();
+
